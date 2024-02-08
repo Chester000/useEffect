@@ -1,10 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { Alert, StyleSheet, Text, View } from 'react-native';
+import { MyButton } from './components/button'
+import { SurpriseButton } from './components/surpriseButton';
+import { CallbackButton } from './components/callbackButton';
+ 
 export default function App() {
+
+  const gotClick = (id) => {
+    Alert.alert("Clicked!", "Button " + id);
+  }
+
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <MyButton />
+      <SurpriseButton />
+      <CallbackButton id={1} callback={ gotClick } />
+      <CallbackButton id={2} callback={ gotClick } />
+      <CallbackButton id={4} callback={ gotClick } />
+      <CallbackButton id={41} callback={ gotClick } />
+      <CallbackButton id={99} callback={ gotClick } />
       <StatusBar style="auto" />
     </View>
   );
